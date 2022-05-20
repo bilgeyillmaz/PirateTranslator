@@ -1,0 +1,53 @@
+﻿@using CaseAFS.ViewModels
+@model UserViewModel
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+	<style>
+		#login-div {
+			position: absolute;
+			left: 40%;
+			top: 40%;
+			border: 1px solid #ccc;
+			padding: 20px;
+			border-radius: 20px 20px 20px 20px;
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+	<div id="login-div">
+		<div class="row">
+			<div class="col-12">
+				<form asp-controller="Account" asp-action="Index">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-group">
+						<label style="color: green"><b> <i class="bi bi-person-circle"></i> LOGIN</b></label>
+						<span class="alert-danger" m-b-5>@Html.ValidationMessage("Error1")</span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Email" class="control-label" style="color:white"></label>
+						<input asp-for="Email" class="form-control" style="color:green" />
+						<span asp-validation-for="Email" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Password" class="control-label" style="color:white"></label>
+						<input asp-for="Password" class="form-control" style="color:green" />
+						<span asp-validation-for="Password" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<br />
+						<input type="submit" value="Sign In" class="btn btn-success"/>
+						<input type="reset" value="Clear" class="btn btn-danger" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

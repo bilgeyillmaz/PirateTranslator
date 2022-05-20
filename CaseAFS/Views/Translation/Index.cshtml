@@ -1,0 +1,35 @@
+﻿@using CaseAFS.Models
+@model Translate
+@{
+	ViewData["Title"] = "Translation Page";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form href="/translation/get?area=Index" method="post">
+	<div class="mb-3">
+		<label class="form-label">Text</label>
+		<input type="text" name="Text" class="form-control">
+	</div>
+	<button type="submit" class="btn btn-success  col-md-3">Translate</button>
+</form>
+
+
+<table class="table table-sm table-striped table-bordered m-2">
+	<thead>
+		<tr>
+			<th>Success</th>
+			<th>Translation</th>
+			<th>Text</th>
+			<th>Translated</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>@Model.Success.Total.ToString()</td>
+			<td>@Model.Contents.Translation</td>
+			<td>@Model.Contents.Text</td>
+			<td>@Model.Contents.Translated</td>
+		</tr>
+	</tbody>
+</table>
+@await	Html.PartialAsync("~/Views/Shared/_Footer.cshtml")
